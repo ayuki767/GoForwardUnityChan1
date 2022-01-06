@@ -11,11 +11,12 @@ public class CubeController : MonoBehaviour
     private float deadLine = -10;
 
     public AudioClip sound;
+    AudioSource audio;
 
     // Use this for initialization
     void Start()
     {
-
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -37,6 +38,7 @@ public class CubeController : MonoBehaviour
         {
             return;         
         }
-        AudioSource.PlayClipAtPoint(sound, transform.position);
+        audio.PlayOneShot(sound);
+
     }
 }
